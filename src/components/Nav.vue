@@ -17,7 +17,7 @@
                                 <router-link class="link" :to="{name: 'SearchApi'}">輸入搜尋</router-link>
                             </li>
                             <li class="link_container">
-                                <router-link class="link" :to="{name: 'ClickApi'}">點擊篩選</router-link>
+                                <router-link class="link" :to="{name: 'ClickApi'}">點擊更動</router-link>
                             </li>
                         </ul>
                     </li>

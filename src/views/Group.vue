@@ -1,16 +1,15 @@
 <template>
     <main>
         <h1>分組用</h1>
+        <span>輸入人名，每輸入完一個人名需換行</span>
         <textarea name="" id="" cols="30" rows="10" v-model="team_member"></textarea>
         <button @click="changelist">分隊</button>
         <div class="team_container">
             <div class="team">
-                <div>A組：</div>
-                <div v-show="already">{{Ateam}}</div>
+                <div>A組：<div class="team_txt" v-show="already">{{Ateam}}</div></div>
             </div>
             <div class="team">
-                <div>B組：</div>
-                <div v-show="already">{{Bteam}}</div>
+                <div>B組：<div class="team_txt" v-show="already">{{Bteam}}</div></div>
             </div>
         </div>
     </main>
@@ -51,8 +50,8 @@ export default {
             }
             console.log(this.team)
             this.already = true
-            this.Ateam = this.team[0].join(', ')
-            this.Bteam = this.team[1].join(', ')
+            this.Ateam = this.team[0].join(',')
+            this.Bteam = this.team[1].join(',')
         }
     },
     computed: {
@@ -71,6 +70,13 @@ main{
     h1{
         text-align: center;
         margin-bottom: 20px;
+    }
+
+    span{
+        color: white;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 100%;
     }
 
     textarea{
@@ -100,6 +106,12 @@ main{
             text-align: center;
             border: 1px solid white;
             padding: 10px;
+            
+            .team_txt{
+                word-wrap: break-word;
+                word-break: break-all;
+                overflow: hidden;
+            }
         }
     }
 }

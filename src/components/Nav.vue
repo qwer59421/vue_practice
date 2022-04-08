@@ -6,29 +6,43 @@
             <div class="title_container">
                 <router-link class="title" :to="{name: 'Home'}">練習用</router-link>
             </div>
-            <div class="nav-links">
-                <ul v-show="!mobile">
-                    <li class="onelink">
-                        <router-link class="link" :to="{name: 'Home'}">首頁</router-link>
-                    </li>
-                    <li class="links">API練習
-                        <ul class="links_title">
-                            <li class="link_container">
-                                <router-link class="link" :to="{name: 'SearchApi'}">輸入搜尋</router-link>
-                            </li>
-                            <li class="link_container">
-                                <router-link class="link" :to="{name: 'ClickApi'}">點擊更動</router-link>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- <li class="onelink">
-                        <router-link class="link" :to="{name: 'Home'}">其它</router-link>
-                    </li>
-                    <li class="onelink">
-                        <router-link class="link" :to="{name: 'Home'}">其它</router-link>
-                    </li> -->
-                </ul>
-            </div>
+            <ul v-show="!mobile" class="nav_bar">
+                <li class="onelink">
+                    <router-link class="link" :to="{name: 'Home'}">首頁</router-link>
+                </li>
+                <li class="links">API練習
+                    <ul class="links_title">
+                        <li class="link_container">
+                            <router-link class="link" :to="{name: 'SearchApi'}">輸入搜尋</router-link>
+                        </li>
+                        <li class="link_container">
+                            <router-link class="link" :to="{name: 'ClickApi'}">點擊更動</router-link>
+                        </li>
+                    </ul>
+                </li>
+                <li class="links">其它
+                    <ul class="links_title">
+                        <li class="link_container">
+                            <router-link class="link" :to="{name: 'Group'}">分組</router-link>
+                        </li>
+                        <li class="link_container">
+                            <router-link class="link" :to="{name: 'Group'}">未使用</router-link>
+                        </li>
+                        <li class="link_container">
+                            <router-link class="link" :to="{name: 'Group'}">未使用</router-link>
+                        </li>
+                        <li class="link_container">
+                            <router-link class="link" :to="{name: 'Group'}">未使用</router-link>
+                        </li>
+                        <li class="link_container">
+                            <router-link class="link" :to="{name: 'Group'}">未使用</router-link>
+                        </li>
+                    </ul>
+                </li>
+                <li class="onelink">
+                    <router-link class="link" :to="{name: 'Home'}">未使用</router-link>
+                </li>
+            </ul>
             <div v-show="mobile" class="burger"></div>
         </div>
     </nav>
@@ -84,107 +98,105 @@ export default {
             }
         }
 
-        .nav-links{
-            height: 100%;
+        .nav_bar{
             display: flex;
+            justify-content: space-between;
+            height: 100%;
             align-items: center;
 
-            ul{
+            .onelink{
+                list-style: none;
+                position: relative;
+                width: 100px;
                 display: flex;
-                justify-content: space-between;
-                height: 100%;
-                align-items: center;
+                justify-content: center;
 
-                .onelink{
-                    list-style: none;
-                    width: 100px;
-                    display: flex;
-                    justify-content: center;
-
-                    .link{
-                        text-decoration: none;
-                        color: white;
-                        padding: 0 20px;
-                        font-size: 16px;
-                        position: relative;
-                        &:hover::after{
-                            right: 0%;
-                            left: 0%;
-                        }
-                    }
-
-                    .link::after{
-                        content: "";
-                        position: absolute;
-                        right: 50%;
-                        left: 50%;
-                        bottom: -7px;
-                        border-bottom: 2px solid yellow;
-                        transition: .3s;
-                    }
-                }
-
-                .links{
-                    height: 100%;
-                    line-height: 80px;
-                    list-style: none;
-                    width: 120px;
-                    text-align: center;
+                .link{
+                    text-decoration: none;
+                    color: white;
+                    padding: 0 20px;
+                    font-size: 16px;
                     position: relative;
-
-                    &:hover .links_title{
-                        display: flex;
+                    &:hover::after{
+                        right: 0%;
+                        left: 0%;
                     }
+                }
 
-                    .links_title{
-                        line-height: 20px;
-                        width: 120px;
-                        display: none;
-                        justify-content: center;
-                        align-items: center;
-                        position: absolute;;
-                        top: 80px;
-                        flex-direction: column;
-                        list-style: none;
-                        cursor: pointer;
+                .link::after{
+                    content: "";
+                    position: absolute;
+                    right: 50%;
+                    left: 50%;
+                    bottom: -7px;
+                    border-bottom: 2px solid yellow;
+                    transition: .3s;
+                }
+            }
 
-                        .link_container{
-                            // position: relative;
-                            padding: 15px 0;
-                            background-color: black;
-                            z-index: 999;
-                            // box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+            .links{
+                position: relative;
+                height: 100%;
+                line-height: 80px;
+                list-style: none;
+                width: 120px;
+                text-align: center;
+                &:hover .links_title{
+                    display: flex;
+                }
 
-                            .link{
-                                text-decoration: none;
-                                height: 40px;
-                                color: white;
-                                position: relative;
-                                font-size: 16px;
-                                // display: flex;
-                                padding: 0 10px;
-                                margin: 0 10px;
+                .links_title{
+                    line-height: 20px;
+                    width: 120px;
+                    display: none;
+                    justify-content: center;
+                    // align-items: center;
+                    position: absolute;;
+                    top: 100%;
+                    left: -1px;
+                    flex-direction: column;
+                    list-style: none;
+                    cursor: pointer;
 
-                                &:hover::after{
-                                    right: 5%;
-                                    left: 5%;
-                                }
-                            }
-
-                            .link::after{
-                                content: "";
-                                position: absolute;
-                                right: 50%;
-                                left: 50%;
-                                bottom: -7px;
-                                border-bottom: 2px solid yellow;
-                                transition: .3s;
+                    .link_container{
+                        // position: relative;
+                        padding: 15px 0;
+                        background-color: black;
+                        z-index: 999;
+                        // box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+                        
+                        .link{
+                            text-decoration: none;
+                            height: 40px;
+                            width: 100%;
+                            color: white;
+                            position: relative;
+                            font-size: 16px;
+                            // display: flex;
+                            padding: 0 10px;
+                            margin: 0 10px;
+                            &:hover::after{
+                                right: 5%;
+                                left: 5%;
                             }
                         }
 
+                        .link::after{
+                            content: "";
+                            position: absolute;
+                            right: 50%;
+                            left: 50%;
+                            bottom: -7px;
+                            border-bottom: 2px solid yellow;
+                            transition: .3s;
+                        }
                     }
-                    
+
+                    .link_container:last-child{
+                        padding-bottom: 25px;
+                    }
                 }
+                
             }
         }
         
